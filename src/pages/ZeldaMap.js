@@ -1,20 +1,33 @@
 import L from 'leaflet';
 import '../style/zelda-map.css';
 import { useEffect } from 'react';
-import { linkIcon } from '../data/icons/index';
-
+import { linkIcon, towerIcon } from '../data/icons/index';
+import tower from '../data/locations/tower';
 
 const ZeldaMap = () => {
+    let myMap;
+    const handleBtnTowerOnClick = () => {
+        // eslint-disable-next-line array-callback-return
+        tower.map((data) => {
+            const marker = L.marker(data.coordinates, {
+                icon: towerIcon,
+                draggable: false,
+            });
+            marker.addTo(myMap).bindTooltip(data.name);
+        });
+    };
 
     useEffect(() => {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        myMap = null;
         let timer;
         const maxBounds = [
             [0, -176.59],
             [85.455, 38]
         ];
         const position = [70.505, -75.09];
-        L.CRS.Simple.transformation = new L.Transformation(1, 0, 1, 0)
-        const myMap = L.map('map', {
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        myMap = L.map('map', {
             renderer: L.canvas(),
             preferCanvas: true,
             attributionControl: false,
@@ -45,14 +58,15 @@ const ZeldaMap = () => {
                 marker.on('dblclick', handleMarkerDbClick);
             }, 250);
         };
-
         myMap.on('click', handleMapOnClick);
-
     }, []);
 
     return (
         <>
             <div id='map' className='leaflet-container'>
+            </div>
+            <div>
+                <button onClick={handleBtnTowerOnClick}>tower</button>
             </div>
         </>
     );
