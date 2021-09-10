@@ -38,11 +38,36 @@ export const positionIcon = Leaflet.icon({
 });
 
 export const cuccoIcon = Leaflet.icon({
-    iconSize: [30,30],
+    iconSize: [30, 30],
     iconUrl: '/images/icons/cucco.png'
 });
 
 export const linkIcon = Leaflet.icon({
-    iconSize: [30,30],
+    iconSize: [32, 32],
     iconUrl: '/images/icons/link.png'
+});
+
+export const sword = Leaflet.icon({
+    iconSize: [30, 30],
+    iconUrl: '/images/icons/sword.png'
+});
+
+export const mifa = Leaflet.icon({
+    iconSize: [30, 30],
+    iconUrl: '/images/icons/mifa.png'
+});
+
+export const mifaHd = Leaflet.icon({
+    iconSize: [30, 30],
+    iconUrl: '/images/icons/mifa-hd.png'
+});
+
+export const swordWife = Leaflet.icon({
+    iconSize: [30, 30],
+    iconUrl: '/images/icons/sword-wife.png'
+});
+
+export const swordWifeHD = Leaflet.icon({
+    iconSize: [30, 30],
+    iconUrl: '/images/icons/sword-wife-hd.png'
 });

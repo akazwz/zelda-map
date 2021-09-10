@@ -5,13 +5,14 @@ import { linkIcon } from '../data/icons/index';
 
 
 const ZeldaMap = () => {
+
     useEffect(() => {
         let timer;
         const maxBounds = [
-            [0, - 176.59],
+            [0, -176.59],
             [85.455, 38]
         ];
-        const position = [70.505, - 75.09];
+        const position = [70.505, -75.09];
         L.CRS.Simple.transformation = new L.Transformation(1, 0, 1, 0)
         const myMap = L.map('map', {
             renderer: L.canvas(),
@@ -33,6 +34,7 @@ const ZeldaMap = () => {
                 const latLng = e.latlng;
                 const marker = L.marker([latLng.lat, latLng.lng], {
                     icon: linkIcon,
+                    draggable: true,
                 });
                 marker.addTo(myMap);
                 const handleMarkerDbClick = (e) => {
